@@ -41,7 +41,7 @@ body('password',"pasword must be at least 6 char and max 16 char").isLength({ mi
         const data ={
           user:{id:user.id}
         }
-        const authToken = jwt.sign(data, process.env.REACT_APP_JWT_SECRET);
+        const authToken = jwt.sign(data, `${process.env.REACT_APP_JWT_SECRET}`);
         res.json({authToken})
     } catch (error) {
       console.error(error.message);
@@ -77,7 +77,7 @@ async(req,res)=>{
       user:{id:user.id}
     }
     // send paylaod data or token 
-    const authToken = jwt.sign(data, process.env.REACT_APP_JWT_SECRET);
+    const authToken = jwt.sign(data, `${process.env.REACT_APP_JWT_SECRET}`);
     res.json({authToken})
   } catch (error) {
     console.error(error.message);
